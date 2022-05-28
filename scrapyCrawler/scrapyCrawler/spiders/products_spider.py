@@ -1,6 +1,6 @@
+from ..constants import DOMAIN
 from .base_product_spider import BaseProductsSpider
 
-DOMAIN = 'https://gplay.bg'
 
 class PheripheralProductsSpider(BaseProductsSpider):
     name = 'pheripherials'
