@@ -3,12 +3,14 @@ from urllib.parse import urljoin
 import scrapy
 
 from ..constants import DOMAIN, PRODUCTS_FILTERS
+from ..database_setup import database_setup
 from ..items import ProductItem
 
 
 # TODO: add database setup (check if database does not exist - create)
 class BaseProductsSpider(scrapy.Spider):
     def parse(self, response):
+        database_setup()
         sub_cat_links = response.css('div.categories-grid-item a::attr(href)').extract()
 
         for sub_cat_link in sub_cat_links:
@@ -20,13 +22,14 @@ class BaseProductsSpider(scrapy.Spider):
 
             yield response.follow(sub_cat_link, callback=self.products_parse)
 
+
     def products_parse(self, response):
         products = response.css('a.product-image::attr(href)').extract()
-
         for product in products:
             product = urljoin(response.url, product)
 
             yield response.follow(product, callback=self.product_scrape)
+
 
     def product_scrape(self, response):
         products = ProductItem()

@@ -24,6 +24,7 @@ class ProductPipeline(object):
                                     item['subtitle'],
                                     item['product_number'],
                                     item['price'],
+                                    # The values bellow are used for update
                                     item['title'],
                                     item['subtitle'],
                                     item['price'],
