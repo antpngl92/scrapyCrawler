@@ -3,7 +3,7 @@ import sqlite3
 connection = sqlite3.connect('products.db')
 currsor = connection.cursor()
 
-currsor.execute("""create table products_tb(
+currsor.execute("""create table products (
                     title text,
                     category text,
                     sub_category text,

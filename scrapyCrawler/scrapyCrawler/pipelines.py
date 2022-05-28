@@ -15,7 +15,7 @@ class ProductPipeline(object):
 
     def store_to_db(self, item):
         self.curr.execute("""
-            INSERT INTO products_tb
+            INSERT INTO products
             VALUES (?, ?, ?, ?, ?, ?)
             ON CONFLICT(product_number) DO UPDATE
             SET title = ?, subtitle = ?, price = ?
