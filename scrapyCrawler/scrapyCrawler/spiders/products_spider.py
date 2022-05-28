@@ -2,8 +2,10 @@ from ..constants import DOMAIN
 from .base_product_spider import BaseProductsSpider
 
 
-class PheripheralProductsSpider(BaseProductsSpider):
-    name = 'pheripherials'
+# Combine both into a single Spider starting from DOMAIN only
+# The spider should open the hardware and pheripherals menu automatically
+class PeripheralProductsSpider(BaseProductsSpider):
+    name = 'peripherals'
 
     start_urls = [
         DOMAIN + '/гейминг-периферия'
