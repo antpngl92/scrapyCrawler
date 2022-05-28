@@ -1,7 +1,5 @@
 import sqlite3
 
-from itemadapter import ItemAdapter
-
 
 class ProductPipeline(object):
     def __init__(self):
