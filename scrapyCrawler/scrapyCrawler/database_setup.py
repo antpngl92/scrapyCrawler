@@ -9,7 +9,7 @@ def database_setup():
         CREATE TABLE IF NOT EXISTS products (
             title text,
             category text,
-            sub_category text,
+            subcategory text,
             subtitle text,
             product_number text PRIMARY KEY,
             price decimal(10,2)
